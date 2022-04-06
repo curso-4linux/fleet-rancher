@@ -6,15 +6,16 @@ metadata:
     app: app
   name: app
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: app
+      tier: frontend
   strategy: {}
   template:
     metadata:
       labels:
         app: app
+        tier: frontend
     spec:
       containers:
       - image: 4linuxrancher/app:v1
