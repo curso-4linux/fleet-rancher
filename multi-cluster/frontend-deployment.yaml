@@ -2,41 +2,55 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress
   labels:
-    app: wordpress
+    app: app
+  name: app
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: wordpress
-      tier: frontend
-  strategy:
-    type: Recreate
+      app: app
+  strategy: {}
   template:
     metadata:
       labels:
-        app: wordpress
-        tier: frontend
+        app: app
     spec:
       containers:
-      - image: wordpress:4.8-apache
-        name: wordpress
+      - image: 4linuxrancher/app:v1
+        name: app
         env:
-        - name: WORDPRESS_DB_HOST
-          value: wordpress-mysql
-        - name: WORDPRESS_DB_PASSWORD
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: app-configmaps
+              key: DB_HOST
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: app-configmaps
+              key: DB_PORT
+        - name: DB_USER
+          valueFrom:
+            configMapKeyRef:
+              name: app-configmaps
+              key: DB_USER
+        - name: DB_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: app-configmaps
+              key: DB_NAME
+        - name: DB_PASS
           valueFrom:
             secretKeyRef:
-              name: mysql-pass
-              key: password
-        ports:
-        - containerPort: 80
-          name: wordpress
-        volumeMounts:
-        - name: wordpress-persistent-storage
-          mountPath: /var/www/html
-      volumes:
-      - name: wordpress-persistent-storage
-        persistentVolumeClaim:
-          claimName: wp-pv-claim
+              name: app-secrets
+              key: DB_PASS
 
+        volumeMounts:
+        - name: claim-app
+          mountPath: "/app"
+
+      volumes:
+        - name: claim-app
+          persistentVolumeClaim:
+            claimName: claim-app
