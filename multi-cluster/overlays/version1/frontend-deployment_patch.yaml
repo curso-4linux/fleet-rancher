@@ -1,4 +1,2 @@
 spec:
-  template:
-    spec:
-      image: 4linuxrancher/app:v1
+  image: 4linuxrancher/app:v1
