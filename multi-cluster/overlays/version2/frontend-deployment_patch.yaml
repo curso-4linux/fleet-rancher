@@ -1,5 +1,4 @@
 spec:
   template:
     spec:
-      containers:
-        image: 4linuxrancher/app:v2
+      image: 4linuxrancher/app:v2
