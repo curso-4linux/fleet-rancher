@@ -1,3 +1,3 @@
-    spec:
-      containers:
+spec:
+      spec:
       - image: 4linuxrancher/app:v1
