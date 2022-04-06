@@ -9,6 +9,7 @@ targetCustomizations:
   yaml:
     overlays:
     - scale3
+    - version1
 
 - name: homolog
   clusterSelector:
@@ -16,4 +17,4 @@ targetCustomizations:
       env: homolog
   yaml:
     overlays:
-    - version
+    - version2
