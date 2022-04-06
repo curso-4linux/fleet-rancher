@@ -1,6 +1,7 @@
 ---
 namespace: gitops
 targetCustomizations:
+
 - name: test
   clusterSelector:
     matchLabels:
@@ -8,3 +9,11 @@ targetCustomizations:
   yaml:
     overlays:
     - scale3
+
+- name: homolog
+  clusterSelector:
+    matchLabels:
+      env: homolog
+  yaml:
+    overlays:
+    - version
