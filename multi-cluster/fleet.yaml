@@ -2,7 +2,7 @@
 namespace: gitops
 targetCustomizations:
 
-- name: test
+- name: cluster1-gke
   clusterSelector:
     matchLabels:
       env: test
@@ -11,7 +11,7 @@ targetCustomizations:
     - scale3
     - version1
 
-- name: homolog
+- name: cluster2-gke
   clusterSelector:
     matchLabels:
       env: homolog
