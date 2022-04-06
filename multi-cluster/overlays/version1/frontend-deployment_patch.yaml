@@ -1,2 +1,11 @@
+
 spec:
-  image: 4linuxrancher/app:v1
+  selector:
+    matchLabels:
+      app: app
+  template:
+      labels:
+        app: app
+    spec:
+      containers:
+      - image: 4linuxrancher/app:v1
