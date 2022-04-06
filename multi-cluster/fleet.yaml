@@ -1,0 +1,10 @@
+---
+namespace: gitops
+targetCustomizations:
+- name: test
+  clusterSelector:
+    matchLabels:
+      env: test
+  yaml:
+    overlays:
+    - scale3
