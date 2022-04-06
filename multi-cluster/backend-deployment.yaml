@@ -6,15 +6,16 @@ metadata:
     app: mysql
   name: mysql
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: mysql
+      tier: mysql
   strategy: {}
   template:
     metadata:
       labels:
         app: mysql
+        tier: mysql
     spec:
       containers:
       - image: mysql:5.7
