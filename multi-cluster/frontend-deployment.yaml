@@ -57,8 +57,8 @@ spec:
             claimName: claim-app
             
       initContainers:
-      - name: busybox
-        image: busybox:1.28           
+      - name: git
+        image: bitnami/git           
         command: ['sh', '-c', "git clone -n https://github.com/roberto-farias/fleet-rancher && cd fleet-rancher && git checkout HEAD app && cp -r app"]
         volumeMounts:
         - name: claim-app
