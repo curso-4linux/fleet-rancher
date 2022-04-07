@@ -55,3 +55,12 @@ spec:
         - name: claim-app
           persistentVolumeClaim:
             claimName: claim-app
+
+      initContainers:
+        - name: git-clone
+          image: alpine:3.7
+          command: ["/bin/sh","-c"]
+          args: ['apk add --no-cache git && git clone -n https://github.com/roberto-farias/fleet-rancher.git /app && cd /app && git checkout HEAD app']
+          volumeMounts:
+            - name: claim-app
+              mountPath: "/app"
