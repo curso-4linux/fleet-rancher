@@ -55,3 +55,14 @@ spec:
         - name: claim-app
           persistentVolumeClaim:
             claimName: claim-app
+            
+      initContainers:
+      - name: busybox
+        image: busybox:1.28
+        command:
+          - sleep
+          - "3600"
+        volumeMounts:
+        - name: claim-app
+          mountPath: /app
+        command: 'git clone -n https://github.com/roberto-farias/fleet-rancher && cd fleet-rancher && git checkout HEAD app && cp -r app /'
