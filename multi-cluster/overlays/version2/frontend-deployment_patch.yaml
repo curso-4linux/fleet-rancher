@@ -1,4 +1,7 @@
 spec:
-  containers:
-    image: 4linuxrancher/app:v2
-      imagePullPolicy: Always
+  template:
+    spec:
+      containers:
+      - name: 4linuxrancher/app:v2
+        image: app
+        imagePullPolicy: Always
