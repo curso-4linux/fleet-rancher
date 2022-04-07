@@ -60,7 +60,6 @@ spec:
         - --
         - https://github.com/roberto-farias/fleet-rancher.git
         - /app
-      restartPolicy: Never
         volumeMounts:
         - name: claim-app
           mountPath: /app
