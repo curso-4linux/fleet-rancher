@@ -57,10 +57,16 @@ spec:
             claimName: claim-app
 
       initContainers:
-        - name: git-clone
-          image: alpine:3.7
-          command: ["/bin/sh","-c"]
-          args: ['apk add --no-cache git && git clone -n https://github.com/roberto-farias/fleet-rancher.git /app && cd /app && git checkout HEAD app']
-          volumeMounts:
-            - name: claim-app
-              mountPath: "/app"
+        - name: git-sync
+          image: gcr.io/google_containers/git-sync-amd64:v2.0.4
+          env:
+          - name: GIT_SYNC_REPO
+            value: "https://github.com/roberto-farias/fleet-rancher.git"
+          - name: GIT_SYNC_SSH
+            value: "false"
+          - name: GIT_SYNC_ROOT
+            value: /app
+          - name: GIT_SYNC_DEST
+            value: "/app"
+          - name: GIT_SYNC_ONE_TIME
+            value: "true"
