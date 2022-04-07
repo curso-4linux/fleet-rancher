@@ -7,7 +7,7 @@ metadata:
     app: app
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   storageClassName: standard
   resources:
     requests:
