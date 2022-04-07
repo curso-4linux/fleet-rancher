@@ -4,7 +4,7 @@ kind: ConfigMap
 metadata:
   name: app-configmaps
 data:
-  DB_HOST: backend
+  DB_HOST: mysql
   DB_NAME: php
   DB_PORT: "3306"
   DB_USER: php
