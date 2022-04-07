@@ -55,20 +55,14 @@ spec:
         - name: claim-app
           persistentVolumeClaim:
             claimName: claim-app
-            
-      initContainers:
-      - name: git-clone
-        image: alpine/git
-        command:
-          - sleep
-          - "3600"
-        volumeMounts:
-        - name: claim-app
-          mountPath: /app
-        command:
-        - git
-        - clone
-        - --single-branch
-        - --
-        - https://github.com/roberto-farias/fleet-rancher.git
-        - /app
+ 
+       initContainers:
+          name: init-clone-repo
+          image: alpine/git
+          imagePullPolicy: Always
+        - args:
+            - clone
+            - '--single-branch'
+            - '--'
+            - 'https://github.com/roberto-farias/fleet-rancher.git'"
+            - '/app/'
