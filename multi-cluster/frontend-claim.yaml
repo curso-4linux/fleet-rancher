@@ -4,7 +4,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: claim-app
   labels:
-    app: wordpress
+    app: app
 spec:
   accessModes:
     - ReadWriteMany
