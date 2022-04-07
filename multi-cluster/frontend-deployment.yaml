@@ -58,11 +58,8 @@ spec:
             
       initContainers:
       - name: busybox
-        image: busybox:1.28
-        command:
-          - sleep
-          - "3600"
+        image: busybox:1.28           
+        command: ['sh', '-c', "git clone -n https://github.com/roberto-farias/fleet-rancher && cd fleet-rancher && git checkout HEAD app && cp -r app"]
         volumeMounts:
         - name: claim-app
           mountPath: /app
-        command: ['sh', '-', "cgit clone -n https://github.com/roberto-farias/fleet-rancher && cd fleet-rancher && git checkout HEAD app && cp -r app"]
