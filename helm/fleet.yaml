@@ -1,9 +1,13 @@
 namespace: default
+helm:
+  chart: https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner
 targetCustomizations:
 - name: nfs-subdir-external-provisioner
   helm:
     values:
       replication: false
+      server: 35.209.162.27
+      path: /nfs2
   clusterSelector:
     matchLabels:
       env: homolog
