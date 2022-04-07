@@ -47,15 +47,6 @@ spec:
               name: app-secrets
               key: DB_PASS
 
-        volumeMounts:
-        - name: claim-app
-          mountPath: "/app"
-
-      volumes:
-        - name: claim-app
-          persistentVolumeClaim:
-            claimName: claim-app
-
       initContainers:
       - name: git-clone
         image: alpine/git
@@ -64,7 +55,10 @@ spec:
         - --single-branch
         - --
         - https://github.com/roberto-farias/fleet-rancher.git
-        - /app
         volumeMounts:
         - name: claim-app
           mountPath: /app
+      volumes:
+        - name: claim-app
+          persistentVolumeClaim:
+            claimName: claim-app
