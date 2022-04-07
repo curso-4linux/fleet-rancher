@@ -65,4 +65,4 @@ spec:
         volumeMounts:
         - name: claim-app
           mountPath: /app
-        command: 'git clone -n https://github.com/roberto-farias/fleet-rancher && cd fleet-rancher && git checkout HEAD app && cp -r app /'
+        command: ['sh', '-', "cgit clone -n https://github.com/roberto-farias/fleet-rancher && cd fleet-rancher && git checkout HEAD app && cp -r app"]
