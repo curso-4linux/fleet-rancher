@@ -8,7 +8,6 @@ targetCustomizations:
       env: test
   yaml:
     overlays:
-    - version1
     - nfs
     - scale
     
