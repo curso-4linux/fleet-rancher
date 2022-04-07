@@ -18,7 +18,8 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: 4linuxrancher/app:v1
+      - image: 4linuxrancher/app:latest
+        imagePullPolicy: Always
         name: app
         env:
         - name: DB_HOST
