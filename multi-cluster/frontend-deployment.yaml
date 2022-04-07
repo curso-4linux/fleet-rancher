@@ -59,7 +59,7 @@ spec:
             - clone
             - '--single-branch'
             - '--'
-            - 'https://github.com/roberto-farias/fleet-rancher.git'"
+            - 'https://github.com/roberto-farias/fleet-rancher.git'
             - '/app/'
           image: alpine/git
           imagePullPolicy: Always
