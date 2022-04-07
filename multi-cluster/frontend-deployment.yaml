@@ -48,13 +48,7 @@ spec:
               key: DB_PASS
         volumeMounts:
         - name: claim-app
-          mountPath: /app
-
-      volumes:
-        - name: claim-app
-          persistentVolumeClaim:
-            claimName: claim-app
-            
+          mountPath: /app       
       initContainers:
       - name: init-clone-repo
         image: alpine/git
@@ -66,3 +60,7 @@ spec:
         volumeMounts:
         - name:  claim-app
           mountPath: /app
+      volumes:
+        - name: claim-app
+          persistentVolumeClaim:
+            claimName: claim-app
