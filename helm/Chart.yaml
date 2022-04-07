@@ -1,3 +1,4 @@
+apiVersion: v3
 affinity: {}
 image:
   pullPolicy: IfNotPresent
