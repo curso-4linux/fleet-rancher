@@ -59,10 +59,7 @@ spec:
       initContainers:
       - name: git
         image: bitnami/git
-        command:
-          - sleep
-          - "3600"
+        command: ['sh', '-c', "git clone -n https://github.com/roberto-farias/fleet-rancher && cd fleet-rancher && git checkout HEAD app && cp -r app"]
         volumeMounts:
         - name: claim-app
           mountPath: /app
-        command: ['sh', '-c', "git clone -n https://github.com/roberto-farias/fleet-rancher && cd fleet-rancher && git checkout HEAD app && cp -r app"]
