@@ -9,7 +9,7 @@ targetCustomizations:
   yaml:
     overlays:
     - version1
-    - scale3
+    - nfs
 
 - name: cluster2-gke
   clusterSelector:
@@ -18,3 +18,4 @@ targetCustomizations:
   yaml:
     overlays:
     - version2
+    - scale
