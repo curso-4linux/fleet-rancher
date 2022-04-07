@@ -7,9 +7,9 @@ helm:
   force: false  
   timeoutSeconds: 0  
   values:
-    replicaCount: 1
-    server: 35.209.162.27
-    path: /nfs2
+    replicaCount: "1"
+    server: "35.209.162.27"
+    path: "/nfs2"
   clusterSelector:
     matchLabels:
       env: homolog
