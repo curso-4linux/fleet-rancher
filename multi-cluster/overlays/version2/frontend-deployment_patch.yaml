@@ -10,5 +10,5 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: 4linuxrancher/app:v2
+        image: 4linuxrancher/app:v2
         imagePullPolicy: Always
