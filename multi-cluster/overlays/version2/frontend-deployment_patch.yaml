@@ -1,13 +1,4 @@
 spec:
-  selector:
-    matchLabels:
-      app: app
-      tier: frontend
-  template:
-    metadata:
-      labels:
-        app: app
-        tier: frontend
-    spec:
-        image: 4linuxrancher/app:v2
-        imagePullPolicy: Always
+  containers:
+    image: 4linuxrancher/app:v2
+      imagePullPolicy: Always
