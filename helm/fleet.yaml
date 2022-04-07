@@ -1,8 +1,15 @@
 namespace: default
-- name: nfs-subdir-external-provisioner
-  helm:
-    values:
-      replication: false
+helm:
+  releaseName: nfs-subdir-external-provisioner
+  chart: "github.com/kubernetes-sigs/nfs-subdir-external-provisioner"
+  repo: ""
+  version: "master"  
+  force: false  
+  timeoutSeconds: 0  
+  values:
+    replicaCount: 1
+    server: 35.209.162.27
+    path: /nfs2
   clusterSelector:
     matchLabels:
       env: homolog
