@@ -12,4 +12,4 @@ spec:
   selector:
     app: app
     tier: frontend
-  type: LoadBalancer
+  type: NodePort
